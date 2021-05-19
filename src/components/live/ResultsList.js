@@ -3,14 +3,14 @@ import TeamResults from "./TeamResults";
 
 
 const ResultsList = () => {
-  const teams = useSelector((state) => state.teamsList);
+  const teams = useSelector((state) => state.sortedTeams);
   
   if (teams === undefined || teams.length === 0) {
-    return <p>No tems, no results.</p>;
+    return <p>No teams, no results.</p>;
   }
 
   return (
-    <div className="container">
+    <div className="container pt-5">
     
       <table className="table">
         <thead>
@@ -21,11 +21,11 @@ const ResultsList = () => {
             <th scope="col">Round 2</th>
             <th scope="col">Round 3</th>
             <th scope="col">Total</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-            {teams.map(team=><TeamResults team={team} key={team.id}/>)};
-          
+            {teams.map((team, index)=><TeamResults team={team} key={team.id} index={index+1}/>)}; 
         </tbody>
       </table>
       
@@ -34,6 +34,3 @@ const ResultsList = () => {
 };
 
 export default ResultsList;
-// {teams.map((team) => (
-//     <TeamItem key={team.id} team={team} />
-//   ))}

@@ -23,8 +23,8 @@ const TeamsList = () => {
           </tr>
         </thead>
         <tbody>
-          {teams.map((team) => (
-            <TeamItem key={team.id} team={team} />
+          {teams.map((team, index) => (
+            <TeamItem key={team.id} team={team} index={index+1}/>
           ))}
         </tbody>
       </table>

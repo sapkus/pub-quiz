@@ -14,7 +14,7 @@ const TeamItem = (props) => {
 
   return (
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">{props.index}</th>
       <td>
         {props.team.name}{" "}
         {props.team.approved && <span className="badge bg-success">Approved</span>}

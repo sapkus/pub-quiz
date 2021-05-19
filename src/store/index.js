@@ -51,6 +51,7 @@ const initialState = {
   spotsTotal: 15,
   spotsLeft: 11,
   teamsList: [team1, team2, team3, team4],
+  sortedTeams:[team1, team2, team3, team4],
 };
 
 const teamsSlice = createSlice({
@@ -86,7 +87,14 @@ const teamsSlice = createSlice({
         selected.round3 = points;
       }
       selected.total = selected.round1 + selected.round2 + selected.round3;
+
       //sort
+      const sortTeams = [...state.teamsList]
+      sortTeams.sort(function (a, b) {
+        return b.total - a.total;
+      });
+      state.sortedTeams=[...sortTeams];
+      ;
     },
   },
 });

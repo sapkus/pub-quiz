@@ -15,7 +15,7 @@ const TeamResults = (props) => {
 
   return (
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">{props.index}</th>
       <td>{props.team.name}</td>
       <td>{props.team.round1}</td>
       <td>{props.team.round2}</td>
