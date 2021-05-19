@@ -8,7 +8,7 @@ const team1 = {
   approved: false,
   round1: 0,
   round2: 0,
-  round3: 0,
+  round3: 7,
   total: 0,
 };
 
@@ -20,7 +20,7 @@ const team2 = {
   approved: true,
   round1: 0,
   round2: 0,
-  round3: 0,
+  round3: 3,
   total: 0,
 };
 
@@ -31,7 +31,7 @@ const team3 = {
   email: "thor@gmail.com",
   approved: true,
   round1: 0,
-  round2: 0,
+  round2: 2,
   round3: 0,
   total: 0,
 };
@@ -42,7 +42,7 @@ const team4 = {
   email: "wakanda@forever.com",
   approved: true,
   round1: 0,
-  round2: 0,
+  round2: 3,
   round3: 0,
   total: 0,
 };

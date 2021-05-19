@@ -1,10 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import {teamsActions} from "../store/index" 
 
 
 const RegistratinForm = () => {
+  const [formIsValid, setFromIsValid] = useState(true)
   const teamName = useRef();
   const captainsName = useRef();
   const captainsEmail = useRef();
@@ -16,7 +17,11 @@ const RegistratinForm = () => {
     const enteredTeamName = teamName.current.value;
     const enteredCaptainsName = captainsName.current.value;
     const enteredCaptaisEmail = captainsEmail.current.value;
-
+    
+    if (enteredTeamName==='' || enteredCaptainsName === '' || enteredCaptaisEmail === ''){
+      setFromIsValid(false);
+      return
+    };
     
     const teamInfo = {
       id: Math.random(),
@@ -37,6 +42,7 @@ const RegistratinForm = () => {
       style={{ height: "100%" }}
     >
       <h2 className="display-5">Team Registration</h2>
+
       <form onSubmit={formSubmitHandler}>
         <div className="">
           <label htmlFor="teamName" class="form-label">
@@ -74,7 +80,8 @@ const RegistratinForm = () => {
           />
         </div>
         <div className="mt-3 ">
-          <button type="submit" className="btn btn-warning">
+          {!formIsValid && <div className="text-danger"> Please fill in all fields.</div>}
+          <button type="submit" className="btn btn-warning mt-3">
             {" "}
             Register
           </button>
